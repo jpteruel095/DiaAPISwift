@@ -1,0 +1,16 @@
+PODS:
+  - DiaAPISwift (0.1.0)
+
+DEPENDENCIES:
+  - DiaAPISwift (from `../`)
+
+EXTERNAL SOURCES:
+  DiaAPISwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DiaAPISwift: 538d481f3a058692fb884c9076159bd0c5e793bc
+
+PODFILE CHECKSUM: 1b0d1cb3b7510c0d3dd2d89c006fbd6aee608c74
+
+COCOAPODS: 1.8.1
