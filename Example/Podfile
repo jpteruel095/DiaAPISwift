@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DiaAPISwift_Example' do
+  pod 'DiaAPISwift', :path => '../'
+
+  target 'DiaAPISwift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
