@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'DiaAPISwift'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of DiaAPISwift.'
+  s.summary          = 'DiaAPISwift is a helper for RESTful API implementation.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    DiaAPISwift extends the Alamofire libraries, along with SwiftyJSON,
+    to add velocity in building apps with the integration of RESTful API Servers
+    and use lesser code to implement.
                        DESC
 
   s.homepage         = 'https://github.com/jpteruel095/DiaAPISwift'
@@ -29,7 +31,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
+  s.swift_versions = '4.0'
   s.source_files = 'DiaAPISwift/Classes/**/*'
   
   # s.resource_bundles = {

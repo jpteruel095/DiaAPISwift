@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		45DCDB6CAD849D3C793EF917 /* DiaAPISwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DiaAPISwift.podspec; path = ../DiaAPISwift.podspec; sourceTree = "<group>"; };
+		45DCDB6CAD849D3C793EF917 /* DiaAPISwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DiaAPISwift.podspec; path = ../DiaAPISwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4BF9FED577D071EC75CA00F3 /* Pods_DiaAPISwift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaAPISwift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* DiaAPISwift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaAPISwift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,8 +42,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8328E72CE4ABFFE6A2B48CB5 /* Pods_DiaAPISwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaAPISwift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		925F4B461AA4CB1F79468521 /* Pods-DiaAPISwift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaAPISwift_Example.debug.xcconfig"; path = "Target Support Files/Pods-DiaAPISwift_Example/Pods-DiaAPISwift_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		98C5C6CB14139A2C52C1E92B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A27E4BD1E7A46F10D3768705 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		98C5C6CB14139A2C52C1E92B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A27E4BD1E7A46F10D3768705 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B816103391FF93FB64B939B3 /* Pods-DiaAPISwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaAPISwift_Tests.release.xcconfig"; path = "Target Support Files/Pods-DiaAPISwift_Tests/Pods-DiaAPISwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BA822242557DB81810E87DA9 /* Pods-DiaAPISwift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaAPISwift_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DiaAPISwift_Tests/Pods-DiaAPISwift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73D2CEC8DABAE6BBAE656FE /* Pods-DiaAPISwift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaAPISwift_Example.release.xcconfig"; path = "Target Support Files/Pods-DiaAPISwift_Example/Pods-DiaAPISwift_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 				BA822242557DB81810E87DA9 /* Pods-DiaAPISwift_Tests.debug.xcconfig */,
 				B816103391FF93FB64B939B3 /* Pods-DiaAPISwift_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
