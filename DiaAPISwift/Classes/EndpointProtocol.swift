@@ -8,32 +8,6 @@
 import Alamofire
 import SwiftyJSON
 
-public protocol RequestProtocol{
-    func getParameters() -> Parameters
-}
-
-public extension RequestProtocol{
-    func getParameters() -> Parameters{
-        var parameters: Parameters = [:]
-        var listPropertiesWithValues: ((Mirror?) -> Void)!
-        listPropertiesWithValues = { reflect in
-            let mirror = reflect ?? Mirror(reflecting: self)
-            if mirror.superclassMirror != nil {
-                listPropertiesWithValues(mirror.superclassMirror)
-            }
-
-            for (_, attr) in mirror.children.enumerated() {
-                if let property_name = attr.label {
-                    parameters[property_name] = attr.value
-                }
-            }
-        }
-        
-        listPropertiesWithValues(nil)
-        return parameters
-    }
-}
-
 public protocol EndpointProtocol{
     ///Request with Alamofire Parameters, Progress Callback, Completion Callback, and flags to Log request and result
     func request(parameters: Parameters?,
@@ -108,50 +82,5 @@ public extension EndpointProtocol{
                      completion: completion,
                      shouldLog: shouldLog,
                      shouldLogResult: shouldLogResult)
-    }
-    
-    /**
-     Request with Request Protocol and with progress callback, logged by default
-     - parameters:
-        - request: The request with pre-loaded parameters for struct.
-        - progressCallback: Callback that returns the progress of the current request.
-        - completion: Callback for the response of the request.
-     */
-    func request(request: RequestProtocol? = nil,
-                 progressCallback:((Progress) -> Void)? = nil,
-                 completion:((JSON?, Error?) -> Void)? = nil){
-        self.request(parameters: request?.getParameters(),
-                     progressCallback: progressCallback,
-                     completion: completion,
-                     shouldLog: true,
-                     shouldLogResult: true)
-    }
-    
-    /**
-     Request with Request Protocol and without progress callback, logged by default
-     - parameters:
-        - request: The request with pre-loaded parameters for struct.
-        - completion: Callback for the response of the request.
-     */
-    func request(request: RequestProtocol? = nil,
-                 completion:((JSON?, Error?) -> Void)? = nil){
-        self.request(parameters: request?.getParameters(),
-                     progressCallback: nil,
-                     completion: completion,
-                     shouldLog: true,
-                     shouldLogResult: true)
-    }
-    
-    /**
-     Request with Request Protocol and without progress callback, logged by default
-     - parameters:
-        - completion: Callback for the response of the request.
-     */
-    func request(completion:((JSON?, Error?) -> Void)? = nil){
-        self.request(parameters: nil,
-                     progressCallback: nil,
-                     completion: completion,
-                     shouldLog: true,
-                     shouldLogResult: true)
     }
 }
