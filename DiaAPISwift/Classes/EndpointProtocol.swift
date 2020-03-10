@@ -92,5 +92,22 @@ public extension EndpointProtocol{
                 print("Parameters: \(parameters.toJSONString())")
             }
         }
+        
+        Alamofire.request(url,
+                          method: method,
+                          parameters: parameters,
+                          encoding: method == .get ? URLEncoding.default : JSONEncoding.default,
+                          headers: headers).downloadProgress(closure: { (progress) in
+                            //If the developer provided a callback for progress,
+                            // the callback will be called through here
+                            if let progressCallback = progressCallback{
+                                print("progress: \(progress.fractionCompleted)")
+                                DispatchQueue.main.async {
+                                    progressCallback(progress)
+                                }
+                            }
+        }).responseJSON(completionHandler: { (response) in
+            
+        })
     }
 }
