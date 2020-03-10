@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import DiaAPISwift
+import Alamofire
+
+enum Endpoint: EndpointProtocol{
+    case login
+}
+
+struct LoginRequest: RequestProtocol{
+    let username: String
+    let password: String
+}
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +33,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didTapLoginButton(_ sender: Any) {
+        self.login()
+    }
+    
+    func login(){
+        let request = LoginRequest(username: "user01",
+                                   password: "P@ssw0rd!")
+        Endpoint.login.request(request: request) { (json, error) in
+            
+        }
+    }
 }
 
