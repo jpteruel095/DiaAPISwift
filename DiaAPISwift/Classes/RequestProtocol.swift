@@ -9,10 +9,12 @@ import Alamofire
 import SwiftyJSON
 
 public protocol RequestProtocol{
+    ///Gets the Parameters for Alamofire request
     func getParameters() -> Parameters
 }
 
 public extension RequestProtocol{
+    ///Returns the default Parameters with keys based from the variable names
     func getParameters() -> Parameters{
         var parameters: Parameters = [:]
         var listPropertiesWithValues: ((Mirror?) -> Void)!

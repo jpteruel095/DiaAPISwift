@@ -11,7 +11,18 @@ import DiaAPISwift
 import Alamofire
 
 enum Endpoint: EndpointProtocol{
+    var host: String{
+        "www.example.com"
+    }
+    
     case login
+    
+    var path: String{
+        switch self {
+        case .login:
+            return "/login"
+        }
+    }
 }
 
 struct LoginRequest: RequestProtocol{

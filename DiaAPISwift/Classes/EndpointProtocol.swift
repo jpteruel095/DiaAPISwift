@@ -8,7 +8,21 @@
 import Alamofire
 import SwiftyJSON
 
+public struct DiaAPI{
+    struct Constants{
+        static var host: String!
+    }
+    
+    public func configure(host: String){
+        // https://www.example.com/
+        Constants.host = host
+    }
+}
+
 public protocol EndpointProtocol{
+    var path: String { get }
+    var method: HTTPMethod { get }
+    
     ///Request with Alamofire Parameters, Progress Callback, Completion Callback, and flags to Log request and result
     func request(parameters: Parameters?,
                  progressCallback:((Progress) -> Void)?,
@@ -37,6 +51,13 @@ public protocol EndpointProtocol{
 }
 
 public extension EndpointProtocol{
+    var method: HTTPMethod{
+        return .get
+    }
+    var url: URL{
+        let host = DiaAPI.Constants.host!
+        return URL(string: "\(host)\(path)")!
+    }
     /**
      Request with Alamofire Parameters, Progress Callback, Completion Callback, and flags to Log request and result
      - parameters:
@@ -51,36 +72,25 @@ public extension EndpointProtocol{
                  completion:((JSON?, Error?) -> Void)? = nil,
                  shouldLog: Bool = true,
                  shouldLogResult: Bool = true){
-                     //The developer can choose to log the request
-                     // or not.
-                     if shouldLog{
-//                         print("Request URL: \(route.url.absoluteString)")
-//                         print("Header: \(headers.toJSONString())")
-//                         print("Method: \(httpMethod.rawValue)")
-                         if let parameters = parameters{
-                             print("Parameters: \(parameters)")
-                         }
-                     }
-    }
-    
-    /**
-     Request with Request Protocol, Progress Callback, Completion Callback, and flags to Log request and result
-     - parameters:
-        - request: The request with pre-loaded parameters for struct.
-        - progressCallback: Callback that returns the progress of the current request.
-        - completion: Callback for the response of the request.
-        - shouldLog: Specified to allow the current requet log before request and response.
-        - shouldLogResult: If request is allowed to log, user can choose to not log the result.
-     */
-    func request(request: RequestProtocol? = nil,
-                 progressCallback:((Progress) -> Void)? = nil,
-                 completion:((JSON?, Error?) -> Void)? = nil,
-                 shouldLog: Bool = true,
-                 shouldLogResult: Bool = true){
-        self.request(parameters: request?.getParameters(),
-                     progressCallback: progressCallback,
-                     completion: completion,
-                     shouldLog: shouldLog,
-                     shouldLogResult: shouldLogResult)
+        var headers: HTTPHeaders?
+        //check if endpoint requires headers
+        let requiresHeaders = false
+        if requiresHeaders && headers == nil{
+            completion?(nil, APIError.headersRequired)
+            return
+        }
+        
+        //The developer can choose to log the request
+        // or not.
+        if shouldLog{
+            print("Request URL: \(url.absoluteString)")
+            if let headers = headers{
+                print("Header: \(headers.toJSONString())")
+            }
+            print("Method: \(method.rawValue)")
+            if let parameters = parameters{
+                print("Parameters: \(parameters.toJSONString())")
+            }
+        }
     }
 }
