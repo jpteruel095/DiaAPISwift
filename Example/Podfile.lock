@@ -1,15 +1,26 @@
 PODS:
-  - DiaAPISwift (0.1.0)
+  - Alamofire (4.9.1)
+  - DiaAPISwift (0.1.0):
+    - Alamofire (~> 4.0)
+    - SwiftyJSON (~> 4.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - DiaAPISwift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   DiaAPISwift:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DiaAPISwift: 538d481f3a058692fb884c9076159bd0c5e793bc
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  DiaAPISwift: 2c6583df4472177c1e932f98a9f296b872f43887
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
 PODFILE CHECKSUM: 1b0d1cb3b7510c0d3dd2d89c006fbd6aee608c74
 
